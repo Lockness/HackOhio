@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function enterSearch() {
+    var keywords = document.getElementById("indexSearch").value;
+    document.getElementById("searchP").innerHTML = keywords; 
+}
