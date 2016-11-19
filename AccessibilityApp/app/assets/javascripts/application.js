@@ -17,5 +17,5 @@
 
 function enterSearch() {
     var keywords = document.getElementById("indexSearch").value;
-    document.getElementById("searchP").innerHTML = keywords; 
+    console.log(keywords);
 }
