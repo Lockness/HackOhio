@@ -27,6 +27,22 @@
     <%= f.label :placeid %><br>
     <%= f.text_field :placeid %>
   </div>
+  <div class="field">
+    <%= f.label :door_width %><br>
+    <%= f.number_field :door_width %>
+  </div>
+  <div class="field">
+    <%= f.label :bathroom_accessibility %><br>
+    <%= f.select :bathroom_accessibility, options_for_select([['Yes', "Yes"], ['No', "No"]]) %>
+  </div>
+  <div class="field">
+    <%= f.label :table_heights %><br>
+    <%= f.number_field :table_heights %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_comments %><br>
+    <%= f.text_field :additional_comments %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
