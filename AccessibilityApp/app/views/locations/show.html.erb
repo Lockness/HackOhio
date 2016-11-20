@@ -88,47 +88,42 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-8">
-			<div id="map"></div>
+		<div class="col-md-8 well">
+			<div id="map" style="height: 400px; width: 100%">
+			</div>
 	    <script>
-	      function initMap() {
-	        var uluru = {lat: <%= @location.lat %>, lng: <%= @location.long %>};
-	        var map = new google.maps.Map(document.getElementById('map'), {
-	          zoom: 15,
-	          center: uluru
-	        });
-	        var marker = new google.maps.Marker({
-	          position: uluru,
-	          map: map
-	        });
-	      }
+
+	    	window.onload(initMap());
+	      var marker;
+
+			function initMap() {
+			  var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 13,
+			    center: {lat: <%= @location.lat %>, lng: <%= @location.long %>}
+			  });
+
+			  marker = new google.maps.Marker({
+			    map: map,
+			    draggable: true,
+			    animation: google.maps.Animation.DROP,
+			    position: {lat: <%= @location.lat %>, lng: <%= @location.long %>}
+			  });
+			  marker.addListener('click', toggleBounce);
+			}
+
+			function toggleBounce() {
+			  if (marker.getAnimation() !== null) {
+			    marker.setAnimation(null);
+			  } else {
+			    marker.setAnimation(google.maps.Animation.BOUNCE);
+			  }
+			}
 	    </script>
 	    <script async defer
 	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlRox9uSxIpBLkHVsPtx2pDBXK32evMuE&callback=initMap">
 	    </script>
 		</div>
 </div>
-
-
-<!-- <p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
-
-<p>
-  <strong>Lat:</strong>
-  <%= @location.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @location.long %>
-</p>
-
-<p>
-  <strong>Placeid:</strong>
-  <%= @location.placeid %>
-</p>-->
 
 <%= link_to 'Edit', edit_location_path(@location), { :class=>"btn btn-default" } %>
 
