@@ -48,7 +48,7 @@ function initialize() {
 
     var markers = [];
     <% for i in 0...places.length %>
-    markers[<%=i%>] = ["<%= URI.decode(places[i]['name'])%>", parseInt("<%=places[i]['geometry']['location']['lat']%>"), parseInt("<%=places[i]['geometry']['location']['lng']%>")];
+    markers[<%=i%>] = ["<%= URI.decode(places[i]['name'])%>", parseFloat("<%=places[i]['geometry']['location']['lat']%>"), parseFloat("<%=places[i]['geometry']['location']['lng']%>")];
     <% end %>
     console.log(markers.length);
                         
