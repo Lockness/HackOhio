@@ -8,11 +8,15 @@
 <h2>Listings</h2>
 
 <div class="listings">
+    <% if places.size > 0 %>
     <% places.each do |place| %>
         <div class="listing">
             <h4><a href='../locations/<%= place['place_id'] %>'><%= place['name'] %></a></h4>
             <p><%= place['formatted_address'] %></p>
         </div>
+    <% end %>
+    <% else %>
+        <p>No Results</p>
     <% end %>
 </div>
 

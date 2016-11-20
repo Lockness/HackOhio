@@ -7,10 +7,10 @@
 	<h1 class="title">Access<span class="able">Able</span></h1>
 	<div class="row">
     	<div class="col-md-11 somepadding">
-        	<input class="form-control" type="search" id="indexSearch" placeholder="McDonalds, Chipotle, etc.">
+        	<input class="form-control" type="search" id="indexSearch" placeholder="McDonalds, Chipotle, etc." onkeydown="if (event.keyCode == 13) document.getElementById('searchButton').click()">
     	</div>
     	<div class="col-md-1 nopadding">
-        	<button  class="btn btn-default" onclick="searchClicked()">Search!</button>
+        	<button  class="btn btn-default" id="searchButton" onclick="searchClicked()">Search!</button>
     	</div>
     </div>
 </div>
