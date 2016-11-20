@@ -1,14 +1,8 @@
 require 'byebug'
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  after_update :award_points
   # GET /locations
   # GET /locations.json
-
-  def award_points
-    current_user.points = current_user.points + 5
-    current_user.save
-  end
 
   def index
     @locations = Location.all
@@ -77,7 +71,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-        byebug
       params.require(:location).permit(:name, :lat, :long, :placeid, :wide_door_entryways, :handicap_parking, :step_free_access, :automatic_doors, :elevator, :hearing_impaired_accom, :mobility_impaired_accom, :visual_impaired_accom, :bathroom_accessibility, :accessible_table_heights, :additional_comments,)
     end
 end
