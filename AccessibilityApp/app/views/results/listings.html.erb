@@ -17,15 +17,10 @@ function initialize(places) {
     // Display a map on the page
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     map.setTilt(45);
-        
+ /*       
     var markers = [];
-    for (var i = 0; i < places.length; i++) {
-    	var locationName = <%= Location.where(["placeid = ?", places[i]]).name %>;
-    	var locationLat = <%= Location.where(["placeid = ?", places[i]]).lat %>;
-    	var locationLong = <%= Location.where(["placeid = ?", places[i]]).long %>;
-    	markers[i] = [locationName, locationLat, locationLong];
     }
-
+*/
     // Multiple Markers
     //var markers = [
     //    ['London Eye, London', 51.503454,-0.119562],
@@ -90,10 +85,6 @@ function initialize(places) {
 }
     </style>
 
-<% id_array = params[:ids].split("-") %>
-<% for i in 0..id_array.length do %>
-	<h1><%= id_array[i] %></h1>
-<% end %>
 
 	<h3>My Google Maps Demo</h3>
 <div id="map_wrapper">
