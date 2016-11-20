@@ -12,73 +12,80 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4">
-		<h2>Accessibility Information</h2>
+		<div class="col-md-4 well">
 			<table class="table">
-				<tr class="<%= "success" if @location.wide_door_entryways == "Yes" %>
-						   <%= "danger" if @location.wide_door_entryways == "No" %>
-						   <%= "info" if @location.wide_door_entryways == "No" and @location.wide_door_entryways != "Yes" %>">
-					<td>Door Width</td>
-					<td><%= @location.wide_door_entryways %></td>
-				</tr>
-				<tr class="<%= "success" if @location.bathroom_accessibility == "Yes" %>
-						   <%= "danger" if @location.bathroom_accessibility == "No" %>
-						   <%= "info" if @location.bathroom_accessibility == "N/A"%>">
-					<td>Bathroom Accessibility</td>
-					<td><%= @location.bathroom_accessibility %></td>
-				</tr>
-				<tr class="<%= "success" if @location.accessible_table_heights == "Yes" %>
-						   <%= "danger" if @location.accessible_table_heights == "No" %>
-						   <%= "info" if @location.accessible_table_heights == "N/A"%>">
-					<td>Table Heights</td>
-					<td><%= @location.accessible_table_heights %></td>
-				</tr>
-				<tr class="<%= "success" if @location.handicap_parking == "Yes" %>
-						   <%= "danger" if @location.handicap_parking == "No" %>
-						   <%= "info" if @location.handicap_parking == "N/A"%>">
-					<td>Handicap Parking Available</td>
-					<td><%= @location.handicap_parking %></td>
-				</tr>
-				<tr class="<%= "success" if @location.step_free_access == "Yes" %>
-						   <%= "danger" if @location.step_free_access == "No" %>
-						   <%= "info" if @location.step_free_access == "N/A"%>">
-					<td>Step Free Access</td>
-					<td><%= @location.step_free_access %></td>
-				</tr>
-				<tr class="<%= "success" if @location.automatic_doors == "Yes" %>
-						   <%= "danger" if @location.automatic_doors == "No" %>
-						   <%= "info" if @location.automatic_doors == "N/A"%>">
-					<td>Has Automatic Doors</td>
-					<td><%= @location.automatic_doors %></td>
-				</tr>
-				<tr class="<%= "success" if @location.elevator == "Yes" %>
-						   <%= "danger" if @location.elevator == "No" %>
-						   <%= "info" if @location.elevator == "N/A"%>">
-					<td>Elevator Available</td>
-					<td><%= @location.elevator %></td>
-				</tr>
-				<tr class="<%= "success" if @location.hearing_impaired_accom == "Yes" %>
-						   <%= "danger" if @location.hearing_impaired_accom == "No" %>
-						   <%= "info" if @location.hearing_impaired_accom == "N/A"%>">
-					<td>Hearing Impaired Accommodations</td>
-					<td><%= @location.hearing_impaired_accom %></td>
-				</tr>
-				<tr class="<%= "success" if @location.mobility_impaired_accom == "Yes" %>
-						   <%= "danger" if @location.mobility_impaired_accom == "No" %>
-						   <%= "info" if @location.mobility_impaired_accom == "N/A"%>">
-					<td>Mobility Impaired Accommodations</td>
-					<td><%= @location.mobility_impaired_accom %></td>
-				</tr>
-				<tr class="<%= "success" if @location.visual_impaired_accom == "Yes" %>
-						   <%= "danger" if @location.visual_impaired_accom == "No" %>
-						   <%= "info" if @location.visual_impaired_accom == "N/A"%>">
-					<td>Visual Impaired Accommodations</td>
-					<td><%= @location.visual_impaired_accom %></td>
-				</tr>
-				<tr class="<%= "info" if @location.additional_comments != "Yes" and @location.additional_comments != "No" and @location.additional_comments != "N/A"%>">
-					<td>Additional Comments</td>
-					<td><%= @location.additional_comments %></td>
-				</tr>
+				<thead>
+					<tr>
+						<th>Attribute</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="<%= "success" if @location.wide_door_entryways == "Yes" %>
+							   <%= "danger" if @location.wide_door_entryways == "No" %>
+							   <%= "info" if @location.wide_door_entryways == "No" and @location.wide_door_entryways != "Yes" %>">
+						<td>Door Width</td>
+						<td><%= @location.wide_door_entryways %></td>
+					</tr>
+					<tr class="<%= "success" if @location.bathroom_accessibility == "Yes" %>
+							   <%= "danger" if @location.bathroom_accessibility == "No" %>
+							   <%= "info" if @location.bathroom_accessibility == "N/A"%>">
+						<td>Bathroom Accessibility</td>
+						<td><%= @location.bathroom_accessibility %></td>
+					</tr>
+					<tr class="<%= "success" if @location.accessible_table_heights == "Yes" %>
+							   <%= "danger" if @location.accessible_table_heights == "No" %>
+							   <%= "info" if @location.accessible_table_heights == "N/A"%>">
+						<td>Table Heights</td>
+						<td><%= @location.accessible_table_heights %></td>
+					</tr>
+					<tr class="<%= "success" if @location.handicap_parking == "Yes" %>
+							   <%= "danger" if @location.handicap_parking == "No" %>
+							   <%= "info" if @location.handicap_parking == "N/A"%>">
+						<td>Handicap Parking Available</td>
+						<td><%= @location.handicap_parking %></td>
+					</tr>
+					<tr class="<%= "success" if @location.step_free_access == "Yes" %>
+							   <%= "danger" if @location.step_free_access == "No" %>
+							   <%= "info" if @location.step_free_access == "N/A"%>">
+						<td>Step Free Access</td>
+						<td><%= @location.step_free_access %></td>
+					</tr>
+					<tr class="<%= "success" if @location.automatic_doors == "Yes" %>
+							   <%= "danger" if @location.automatic_doors == "No" %>
+							   <%= "info" if @location.automatic_doors == "N/A"%>">
+						<td>Has Automatic Doors</td>
+						<td><%= @location.automatic_doors %></td>
+					</tr>
+					<tr class="<%= "success" if @location.elevator == "Yes" %>
+							   <%= "danger" if @location.elevator == "No" %>
+							   <%= "info" if @location.elevator == "N/A"%>">
+						<td>Elevator Available</td>
+						<td><%= @location.elevator %></td>
+					</tr>
+					<tr class="<%= "success" if @location.hearing_impaired_accom == "Yes" %>
+							   <%= "danger" if @location.hearing_impaired_accom == "No" %>
+							   <%= "info" if @location.hearing_impaired_accom == "N/A"%>">
+						<td>Hearing Impaired Accommodations</td>
+						<td><%= @location.hearing_impaired_accom %></td>
+					</tr>
+					<tr class="<%= "success" if @location.mobility_impaired_accom == "Yes" %>
+							   <%= "danger" if @location.mobility_impaired_accom == "No" %>
+							   <%= "info" if @location.mobility_impaired_accom == "N/A"%>">
+						<td>Mobility Impaired Accommodations</td>
+						<td><%= @location.mobility_impaired_accom %></td>
+					</tr>
+					<tr class="<%= "success" if @location.visual_impaired_accom == "Yes" %>
+							   <%= "danger" if @location.visual_impaired_accom == "No" %>
+							   <%= "info" if @location.visual_impaired_accom == "N/A"%>">
+						<td>Visual Impaired Accommodations</td>
+						<td><%= @location.visual_impaired_accom %></td>
+					</tr>
+					<tr class="<%= "info" if @location.additional_comments != "Yes" and @location.additional_comments != "No" and @location.additional_comments != "N/A"%>">
+						<td>Additional Comments</td>
+						<td><%= @location.additional_comments %></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 		<div class="col-md-8">
@@ -123,5 +130,5 @@
   <%= @location.placeid %>
 </p>-->
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %> 
+<%= link_to 'Edit', edit_location_path(@location), { :class=>"btn btn-default" } %>
+
