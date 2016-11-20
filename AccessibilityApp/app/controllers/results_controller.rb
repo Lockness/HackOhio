@@ -17,9 +17,16 @@ class ResultsController < ApplicationController
         response = RestClient.get(url, headers={})
         places = JSON.parse(response.body)['results']
 
-        byebug
+        places.each { |place| 
+            # if Location.all != include place, add it
+            if Location.where(:placeid => place['place_id']).blank?
+                place = Location.create(name: place['name'], lat: place['geometry']['location']['lat'], 
+                                        long: place['geometry']['location']['lng'], formatted_address: place['formatted_address'], 
+                                        placeid: place['place_id']) 
+            end
+        }
 
-        places.each { |e| puts e }
+        return places
     end
         
     helper_method :requestMaps        
