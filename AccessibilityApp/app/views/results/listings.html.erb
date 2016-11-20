@@ -3,11 +3,18 @@
 </script>
 <%= render 'layouts/header' %>
 
-<%= render 'layouts/header' %>
-
-<%= requestMaps %>
+<% places = requestMaps %>
 
 <h2>Listings</h2>
+
+<div class="listings">
+    <% places.each do |place| %>
+        <div class="listing">
+            <h4><%= place['name'] %></h4>
+            <p><%= place['formatted_address'] %></p>
+        </div>
+    <% end %>
+</div>
 
 <h3>My Google Maps Demo</h3>
 <div id="map_wrapper">
