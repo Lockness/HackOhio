@@ -20,10 +20,17 @@ ActiveRecord::Schema.define(version: 20161119205001) do
     t.string   "placeid"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "door_width"
+    t.string   "wide_door_entryways"
     t.string   "bathroom_accessibility"
-    t.integer  "table_heights"
+    t.string   "accessible_table_heights"
     t.string   "additional_comments"
+    t.string   "handicap_parking"
+    t.string   "step_free_access"
+    t.string   "automatic_doors"
+    t.string   "elevator"
+    t.string   "hearing_impaired_accom"
+    t.string   "mobility_impaired_accom"
+    t.string   "visual_impaired_accom"
   end
 
   create_table "users", force: :cascade do |t|
