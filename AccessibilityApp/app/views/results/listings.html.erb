@@ -10,7 +10,7 @@
 <div class="listings">
     <% places.each do |place| %>
         <div class="listing">
-            <h4><%= place['name'] %></h4>
+            <h4><a href='../locations/<%= place['place_id'] %>'><%= place['name'] %></a></h4>
             <p><%= place['formatted_address'] %></p>
         </div>
     <% end %>
