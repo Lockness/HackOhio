@@ -1,9 +1,15 @@
 require 'byebug'
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-
+  after_update :award_points
   # GET /locations
   # GET /locations.json
+
+  def award_points
+    current_user.points = current_user.points + 5
+    current_user.save
+  end
+
   def index
     @locations = Location.all
   end
