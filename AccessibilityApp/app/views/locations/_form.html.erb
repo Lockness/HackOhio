@@ -11,25 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lat %><br>
-    <%= f.text_field :lat %>
-  </div>
-  <div class="field">
-    <%= f.label :long %><br>
-    <%= f.text_field :long %>
-  </div>
-  <div class="field">
-    <%= f.label :placeid %><br>
-    <%= f.text_field :placeid %>
-  </div>
+<div class="form-group">
   <div class="field">
     <%= f.label :wide_door_entryways %><br>
-    <%= f.select :wide_door_entryways, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.wide_door_entryways) %>
+    <%= f.select :wide_door_entryways, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.wide_door_entryways), class: "form-control"%>
   </div>
   <div class="field">
     <%= f.label :bathroom_accessibility %><br>
@@ -73,5 +58,6 @@
   </div>
   <div class="actions">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>
