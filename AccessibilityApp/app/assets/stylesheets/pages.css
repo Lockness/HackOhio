@@ -1,11 +1,22 @@
-.mainIndex {
-        margin: 0 auto;
-        text-align: center;
-        padding-top: 60px;
+.center {
+	margin: 0 auto;
+	margin-top: 60px;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
 }
 
-.mainSearch {
-        height: 300px;
-        width: 400px;
-        margin: auto;
+.able {
+	color: red;
+}
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.somepadding {
+	padding-right: 0 !important;
+	margin: 0 !important;
 }
