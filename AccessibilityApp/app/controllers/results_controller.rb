@@ -14,6 +14,11 @@ class ResultsController < ApplicationController
         query = 'query=' + searchTerms
 
         url += key + '&' + query
+
+        if (params[:location])
+            url += '&location=' + params[:location] + "&radius=" + params[:radius]
+        end 
+
         response = RestClient.get(url, headers={})
         places = JSON.parse(response.body)['results']
 

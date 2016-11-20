@@ -1,3 +1,4 @@
+require 'byebug'
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+
   end
 
   # GET /locations/new
@@ -40,15 +42,15 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
-    respond_to do |format|
+      respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
-        format.json { render :show, status: :ok, location: @location }
+          format.html { redirect_to @location, notice: 'Location was successfully updated.'}
+          format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
-    end
+      end
   end
 
   # DELETE /locations/1
@@ -69,6 +71,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
+        byebug
       params.require(:location).permit(:name, :lat, :long, :placeid, :wide_door_entryways, :handicap_parking, :step_free_access, :automatic_doors, :elevator, :hearing_impaired_accom, :mobility_impaired_accom, :visual_impaired_accom, :bathroom_accessibility, :accessible_table_heights, :additional_comments,)
     end
 end

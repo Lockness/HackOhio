@@ -6,11 +6,19 @@
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4 text-center title">
-			<%= @location.name %>
+                    <h2><%= @location.name %></h2>
 		</div>
 		<div class="col-md-4">
 		</div>
 	</div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 text-center">
+                    <%= @location.formatted_address %>
+            </div>
+            <div class="col-md-4">
+            </div>
 	<div class="row">
 		<div class="col-md-4 well">
 			<table class="table">
@@ -125,5 +133,5 @@
 		</div>
 </div>
 
-<%= link_to 'Edit', edit_location_path(@location), { :class=>"btn btn-default" } %>
+<%= link_to 'Edit', '/locations/' + @location.placeid + '/edit', { :class=>"btn btn-default" } %>
 
