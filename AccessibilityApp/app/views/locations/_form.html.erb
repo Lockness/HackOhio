@@ -28,16 +28,44 @@
     <%= f.text_field :placeid %>
   </div>
   <div class="field">
-    <%= f.label :door_width %><br>
-    <%= f.number_field :door_width %>
+    <%= f.label :wide_door_entryways %><br>
+    <%= f.select :wide_door_entryways, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.wide_door_entryways) %>
   </div>
   <div class="field">
     <%= f.label :bathroom_accessibility %><br>
-    <%= f.select :bathroom_accessibility, options_for_select([['Yes', "Yes"], ['No', "No"]]) %>
+    <%= f.select :bathroom_accessibility, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.bathroom_accessibility) %>
   </div>
   <div class="field">
-    <%= f.label :table_heights %><br>
-    <%= f.number_field :table_heights %>
+    <%= f.label :accessible_table_heights %><br>
+    <%= f.select :accessible_table_heights, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.accessible_table_heights) %>
+  </div>
+  <div class="field">
+    <%= f.label :handicap_parking %><br>
+    <%= f.select :handicap_parking, options_for_select([['Yes', "Yes"], ['No', "No"], ["N/A", "N/A"]], @location.handicap_parking) %>
+  </div>
+  <div class="field">
+    <%= f.label :step_free_access %><br>
+    <%= f.select :step_free_access, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.step_free_access) %>
+  </div>
+  <div class="field">
+    <%= f.label :automatic_doors %><br>
+    <%= f.select :automatic_doors, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.automatic_doors) %>
+  </div>
+  <div class="field">
+    <%= f.label :elevators %><br>
+    <%= f.select :elevator, options_for_select([['Yes', "Yes"], ['No', "No"], ["N/A", "N/A"]], @location.elevator) %>
+  </div>
+  <div class="field">
+    <%= f.label :hearing_impaired_accom %><br>
+    <%= f.select :hearing_impaired_accom, options_for_select([['Yes', "Yes"], ['No', "No"], ["N/A", "N/A"]], @location.hearing_impaired_accom) %>
+  </div>
+  <div class="field">
+    <%= f.label :mobility_impaired_accom %><br>
+    <%= f.select :mobility_impaired_accom, options_for_select([['Yes', "Yes"], ['No', "No"], ["N/A", "N/A"]], @location.mobility_impaired_accom) %>
+  </div>
+  <div class="field">
+    <%= f.label :visual_impaired_accom %><br>
+    <%= f.select :visual_impaired_accom, options_for_select([['Yes', "Yes"], ['No', "No"], ["N/A", "N/A"]], @location.visual_impaired_accom) %>
   </div>
   <div class="field">
     <%= f.label :additional_comments %><br>
