@@ -2,29 +2,55 @@
 
 <% places = requestMaps %>
 
-<h2>Listings</h2>
 
-<div id="map_wrapper" class="well">
-    <div id="map_canvas" style="height: 400px; width: 100%" class="mapping"></div>
-</div>    
-<div id="map">
-</div>
 
-<div class="listings well">
-    <% if places.size > 0 %>
-    <% places.each do |place| %>
-        <div class="listing">
-            <h4><a href='../locations/<%= place['place_id'] %>'><%= place['name'] %></a></h4>
-            <p><%= place['formatted_address'] %></p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Listings</h2>
         </div>
-    <% end %>
-    <% else %>
-        <p>No Results</p>
-    <% end %>
+        <div class="col-md-8">
+            <h2>Map</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" id="listings-container" style="overflow-y:auto">
+            <div class="listings">
+            <% if places.size > 0 %>
+            <% i = 0 %>
+            <% letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %>
+                <% places.each do |place| %>
+                 <div class="listing">
+                    <h4><a href='../locations/<%= place['place_id'] %>'><%= letters[i]%><b><%= ' - ' + place['name'] %></b></a></h4>
+                    <p><%= place['formatted_address'] %></p>
+                </div>
+                <% i += 1 %>
+                <% end %>
+            <% else %>
+                <p>No Results</p>
+            <% end %>
+            </div>            
+        </div>
+        <div class="col-md-8" id="map-container">
+            <div id="map_wrapper" class="">
+                <div id="map_canvas" style="height: 400px; width: 100%" class="mapping">
+                </div>
+                <div id="map">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 
 <script type="text/javascript">
+
+$("#listings-container").height($("#map-container").height());
+
 jQuery(function($) {
     // Asynchronously Load the map API 
     var script = document.createElement('script');
@@ -44,12 +70,13 @@ function initialize() {
     map.setTilt(45);
         
     // Multiple Markers
-    
+    var infoWindowContent = [];
 
     var markers = [];
     <% for i in 0...places.length %>
-    markers[<%=i%>] = ["<%= URI.decode(places[i]['name'])%>", parseFloat("<%=places[i]['geometry']['location']['lat']%>"), parseFloat("<%=places[i]['geometry']['location']['lng']%>")];
-    bounds.extend
+        markers[<%=i%>] = ["<%= URI.decode(places[i]['name'])%>", parseFloat("<%=places[i]['geometry']['location']['lat']%>"), parseFloat("<%=places[i]['geometry']['location']['lng']%>")];
+        bounds.extend
+        infoWindowContent[<%=i%>] = ["<h3><%=URI.decode(places[i]['name'])%></h3>" + "<p><%=URI.decode(places[i]['formatted_address'])%></p>"];
     <% end %>
     console.log(markers.length);
                         
@@ -58,7 +85,7 @@ function initialize() {
         
     // Display multiple markers on a map
     var infoWindow = new google.maps.InfoWindow(), marker, i;
-    
+    var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     // Loop through our array of markers & place each one on the map  
     for( i = 0; i < markers.length; i++ ) {
         console.log(i);
@@ -67,7 +94,8 @@ function initialize() {
         marker = new google.maps.Marker({
             position: position,
             map: map,
-            title: markers[i][0]
+            title: markers[i][0],
+            label: letters[i]
         });
         
         // Allow each marker to have an info window    
