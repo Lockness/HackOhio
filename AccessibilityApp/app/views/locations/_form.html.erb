@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<div class="form-group">
+<div class="form-group center" style="text-align: center; margin: auto;">
   <div class="field">
     <%= f.label :wide_door_entryways %><br>
     <%= f.select :wide_door_entryways, options_for_select([['Yes', "Yes"], ['No', "No"]], @location.wide_door_entryways), class: "form-control"%>
@@ -56,8 +56,11 @@
     <%= f.label :additional_comments %><br>
     <%= f.text_field :additional_comments %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <a href="/locations/<%=@location.placeid%>">
+    <button class="btn btn-default">
+      Submit
+    </button>
+  </a>
+
   </div>
 <% end %>

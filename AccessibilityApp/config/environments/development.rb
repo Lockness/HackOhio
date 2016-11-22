@@ -10,7 +10,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Do not eager load code on boot.
   config.eager_load = false
-  config.key = 'AIzaSyDRZozLF5HdOO8FnIYvb23J5AZdWAKAAW0'
+  config.key = 'AIzaSyBSjzleaAkrRuGFZ_v-sieRM_2g8hIsQ38'
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

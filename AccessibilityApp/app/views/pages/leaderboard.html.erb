@@ -1,0 +1,22 @@
+<h2>Leaderboard</h2>
+<table>
+	<thead>
+		<tr>
+			<th>
+				Usernames
+			</th>
+			<th>
+				Points
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% User.all.each do |user| %>
+		<tr>
+			<td><%= user.email.split('@')[0] %></td>
+			<td><%= user.points %></td>
+		</tr>
+	<% end %>
+	</tbody>
+		
+</table>

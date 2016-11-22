@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def home
-      @key = 'AIzaSyBlRox9uSxIpBLkHVsPtx2pDBXK32evMuE'
+      @key = 'AIzaSyBSjzleaAkrRuGFZ_v-sieRM_2g8hIsQ38'
   end
 
 end

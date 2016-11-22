@@ -10,7 +10,7 @@ class ResultsController < ApplicationController
         decoded = URI.decode(searchTerms)
 
         url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?'
-        key = 'key=' + Rails.application.config.key
+        key = 'key=' + 'AIzaSyBSjzleaAkrRuGFZ_v-sieRM_2g8hIsQ38'
         query = 'query=' + searchTerms
 
         url += key + '&' + query

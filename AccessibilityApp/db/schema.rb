@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 20161119205001) do
     t.string   "long"
     t.string   "formatted_address"
     t.string   "placeid"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "wide_door_entryways",        default: "N/A"
-    t.string   "bathroom_accessibility",     default: "N/A"
-    t.string   "accessible_table_heights",   default: "N/A"
-    t.string   "additional_comments",        default: "N/A"
-    t.string   "handicap_parking",           default: "N/A"
-    t.string   "step_free_access",           default: "N/A"
-    t.string   "automatic_doors",            default: "N/A"
-    t.string   "elevator",                   default: "N/A"
-    t.string   "hearing_impaired_accom",     default: "N/A"
-    t.string   "mobility_impaired_accom",    default: "N/A"
-    t.string   "visual_impaired_accom",      default: "N/A"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "wide_door_entryways",      default: "N/A"
+    t.string   "bathroom_accessibility",   default: "N/A"
+    t.string   "accessible_table_heights", default: "N/A"
+    t.string   "additional_comments",      default: "N/A"
+    t.string   "handicap_parking",         default: "N/A"
+    t.string   "step_free_access",         default: "N/A"
+    t.string   "automatic_doors",          default: "N/A"
+    t.string   "elevator",                 default: "N/A"
+    t.string   "hearing_impaired_accom",   default: "N/A"
+    t.string   "mobility_impaired_accom",  default: "N/A"
+    t.string   "visual_impaired_accom",    default: "N/A"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20161119205001) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "points",                 default: 0,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

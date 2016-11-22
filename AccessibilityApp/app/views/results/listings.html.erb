@@ -4,7 +4,13 @@
 
 <h2>Listings</h2>
 
-<div class="listings">
+<div id="map_wrapper" class="well">
+    <div id="map_canvas" style="height: 400px; width: 100%" class="mapping"></div>
+</div>    
+<div id="map">
+</div>
+
+<div class="listings well">
     <% if places.size > 0 %>
     <% places.each do |place| %>
         <div class="listing">
@@ -17,18 +23,12 @@
     <% end %>
 </div>
 
-<h3>My Google Maps Demo</h3>
-<div id="map_wrapper">
-    <div id="map_canvas" style="height: 400px; width: 100%" class="mapping"></div>
-</div>    
-<div id="map">
-</div>
 
 <script type="text/javascript">
 jQuery(function($) {
     // Asynchronously Load the map API 
     var script = document.createElement('script');
-    script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyBlRox9uSxIpBLkHVsPtx2pDBXK32evMuE&sensor=false&callback=initialize";
+    script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyBSjzleaAkrRuGFZ_v-sieRM_2g8hIsQ38&sensor=false&callback=initialize";
     document.body.appendChild(script);
 });
 
@@ -49,6 +49,7 @@ function initialize() {
     var markers = [];
     <% for i in 0...places.length %>
     markers[<%=i%>] = ["<%= URI.decode(places[i]['name'])%>", parseFloat("<%=places[i]['geometry']['location']['lat']%>"), parseFloat("<%=places[i]['geometry']['location']['lng']%>")];
+    bounds.extend
     <% end %>
     console.log(markers.length);
                         
@@ -80,13 +81,6 @@ function initialize() {
         // Automatically center the map fitting all markers on the screen
         map.fitBounds(bounds);
     }
-
-    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(14);
-        google.maps.event.removeListener(boundsListener);
-    });
-    
 }
 
 </script>

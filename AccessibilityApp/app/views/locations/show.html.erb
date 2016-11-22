@@ -1,7 +1,7 @@
 <%= render 'layouts/header' %>
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container" style="margin: 0 auto !important">
 	<div class="row">
 		<div class="col-md-4">
 		</div>
@@ -16,11 +16,11 @@
             </div>
             <div class="col-md-4 text-center">
                     <%= @location.formatted_address %>
-            </div>
+            </div><br><br>
             <div class="col-md-4">
             </div>
 	<div class="row">
-		<div class="col-md-4 well">
+		<div class="col-md-8 well">
 			<table class="table">
 				<thead>
 					<tr>
@@ -31,7 +31,7 @@
 				<tbody>
 					<tr class="<%= "success" if @location.wide_door_entryways == "Yes" %>
 							   <%= "danger" if @location.wide_door_entryways == "No" %>
-							   <%= "info" if @location.wide_door_entryways == "No" and @location.wide_door_entryways != "Yes" %>">
+							   <%= "info" if @location.wide_door_entryways != "No" and @location.wide_door_entryways != "Yes" %>">
 						<td>Door Width</td>
 						<td><%= @location.wide_door_entryways %></td>
 					</tr>
@@ -89,7 +89,7 @@
 						<td>Visual Impaired Accommodations</td>
 						<td><%= @location.visual_impaired_accom %></td>
 					</tr>
-					<tr class="<%= "info" if @location.additional_comments != "Yes" and @location.additional_comments != "No" and @location.additional_comments != "N/A"%>">
+					<tr class="<%= "info" if @location.additional_comments != "Yes" and @location.additional_comments != "No"%>">
 						<td>Additional Comments</td>
 						<td><%= @location.additional_comments %></td>
 					</tr>
@@ -99,6 +99,7 @@
 		<div class="col-md-8 well">
 			<div id="map" style="height: 400px; width: 100%">
 			</div>
+	    <div class="mainMap">
 	    <script>
 
 	    	window.onload(initMap());
@@ -128,8 +129,9 @@
 			}
 	    </script>
 	    <script async defer
-	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlRox9uSxIpBLkHVsPtx2pDBXK32evMuE&callback=initMap">
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSjzleaAkrRuGFZ_v-sieRM_2g8hIsQ38&callback=initMap">
 	    </script>
+</div>
 		</div>
 </div>
 
